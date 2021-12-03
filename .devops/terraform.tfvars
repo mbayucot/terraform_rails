@@ -12,3 +12,8 @@ target_group_name = "demo-app-web-https-tg"
 
 cluster = "demo-app"
 instance_type = "t2.micro"
+
+lb_healthcheck_path = "/health_check"
+
+desired_count = "1"
+iam_role = "ecsInstanceRole"

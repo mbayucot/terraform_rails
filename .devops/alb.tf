@@ -1,7 +1,7 @@
-resource "aws_lb" "web" {
+resource "aws_alb" "web" {
   name               = var.elb_name
-  internal           = false
-  load_balancer_type = "application"
+  internal                   = false
+  enable_deletion_protection = false
   security_groups    = [var.security_group]
   subnets            = var.subnets
 
@@ -10,32 +10,34 @@ resource "aws_lb" "web" {
   }
 }
 
-resource "aws_lb_target_group" "web" {
+resource "aws_alb_target_group" "web" {
   name     = var.target_group_name
   port     = 80
+  depends_on           = [aws_alb.web]
   protocol = "HTTP"
   vpc_id   = var.vpc
-  target_type = "instance"
+  target_type = "ip"
+  deregistration_delay = 15
 
   health_check {
-    port                = 80
+    port                = "traffic-port"
     protocol            = "HTTP"
     path                = var.lb_healthcheck_path
     interval            = 30
-    timeout             = 20
+    timeout             = 5
     healthy_threshold   = 10
     unhealthy_threshold = 2
     matcher             = 200
   }
 }
 
-resource "aws_lb_listener" "web" {
-  load_balancer_arn = aws_lb.web.arn
+resource "aws_alb_listener" "web" {
+  load_balancer_arn = aws_alb.web.arn
   port              = "80"
   protocol          = "HTTP"
 
   default_action {
     type             = "forward"
-    target_group_arn = aws_lb_target_group.web.arn
+    target_group_arn = aws_alb_target_group.web.arn
   }
 }

@@ -50,3 +50,4 @@ jobs:
           task-definition: ${{ steps.task-def.outputs.task-definition }}
           service: demo-service-web
           cluster: demo-app
+          wait-for-service-stability: true

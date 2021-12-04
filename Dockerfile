@@ -23,6 +23,6 @@ COPY Gemfile $INSTALL_PATH/Gemfile
 RUN bundle install
 COPY . $INSTALL_PATH
 
-EXPOSE 3000
+EXPOSE 80
 
-CMD ["rails", "server", "-b", "0.0.0.0"]
+CMD ["rails", "server", "-b", "0.0.0.0", "-p", "80"]

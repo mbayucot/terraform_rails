@@ -16,7 +16,6 @@ resource "aws_lb_target_group" "web" {
   protocol = "HTTP"
   vpc_id   = var.vpc
   target_type = "instance"
-  idle_timeout = 5
 
   health_check {
     port                = 80

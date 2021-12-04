@@ -29,3 +29,15 @@ variable "cluster" {
 variable "instance_type" {
   type    = string
 }
+
+variable "lb_healthcheck_path" {
+  type    = string
+}
+
+variable "desired_count" {
+  type    = string
+}
+
+variable "iam_role" {
+  type    = string
+}

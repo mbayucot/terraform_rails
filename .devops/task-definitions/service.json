@@ -1,7 +1,7 @@
 [
   {
     "name": "web",
-    "image": "099459909584.dkr.ecr.us-east-1.amazonaws.com/rails:0a2fb14fddb6810db75abce1a51d4d71b0355af8",
+    "image": "099459909584.dkr.ecr.us-east-1.amazonaws.com/rails:8050590aefa57b804d3d86ee5a487fd0798e3758",
     "portMappings": [
       {
         "hostPort": 80,

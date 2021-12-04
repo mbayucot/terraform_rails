@@ -10,8 +10,8 @@ resource "aws_ecs_cluster" "web" {
 resource "aws_ecs_task_definition" "web" {
   family                = "web"
   requires_compatibilities = ["FARGATE"]
-  cpu                   = 256
-  memory                = 512
+  cpu                   = 512
+  memory                = 1024
   network_mode          = "awsvpc"
   container_definitions = file("task-definitions/service.json")
   task_role_arn            = "arn:aws:iam::099459909584:role/ecsTaskExecutionRole"

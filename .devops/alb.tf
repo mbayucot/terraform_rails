@@ -20,12 +20,11 @@ resource "aws_alb_target_group" "web" {
   deregistration_delay = 15
 
   health_check {
-    port                = "traffic-port"
+    port                = 80
     protocol            = "HTTP"
     path                = var.lb_healthcheck_path
     interval            = 30
     timeout             = 5
-    healthy_threshold   = 10
     unhealthy_threshold = 2
     matcher             = 200
   }

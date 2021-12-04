@@ -25,5 +25,7 @@ COPY . $INSTALL_PATH
 
 EXPOSE 80
 
+RUN bundle exec rails assets:precompile
+
 RUN rm -f tmp/pids/server.pid
 CMD ["rails", "server", "-b", "0.0.0.0", "-p", "80"]

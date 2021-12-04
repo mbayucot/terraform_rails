@@ -8,7 +8,7 @@ resource "aws_ecs_cluster" "web" {
 }
 
 resource "aws_ecs_task_definition" "web" {
-  family                = "web"
+  family                = "web-family"
   requires_compatibilities = ["FARGATE"]
   cpu                   = 512
   memory                = 1024

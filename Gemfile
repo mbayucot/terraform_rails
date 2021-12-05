@@ -54,6 +54,7 @@ group :test do
   gem 'rubocop'
   gem 'bundler-audit'
   gem 'brakeman'
+  gem 'shoulda-matchers'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

@@ -27,6 +27,8 @@ jobs:
           bundle exec bundler-audit --update
           bundle exec brakeman -q -w2
       # Add or Replace any other Linters here
-      - name: Run linters
-        run: |
-          bundle exec rubocop --parallel
+      #- name: Run linters
+      #  run: |
+      #    bundle exec rubocop --parallel
+      - name: Run tests
+          run: bundle exec rake

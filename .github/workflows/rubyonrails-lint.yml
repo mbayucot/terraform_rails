@@ -31,4 +31,6 @@ jobs:
       #  run: |
       #    bundle exec rubocop --parallel
       - name: Run tests
-        run: bundle exec rake
+        run: |
+          bundle exec rails db:prepare
+          bundle exec rake
